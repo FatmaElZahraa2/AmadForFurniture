@@ -1,0 +1,33 @@
+<div class="container">
+  <table class="table col-md-12">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Nedded Quantity</th>
+        <th scope="col">Add To Card</th>
+      </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let pro of ProductList; let i=index" >
+
+      <tr (select)="fun()">
+        <th scope="row">{{i+1}}</th>
+        <td>{{pro.name}}</td>
+        <td><img [src]="pro.imageUrl"></td>
+        <td>{{pro.price |currency}}</td>
+        <td><input #inputNeddedQuantity type="number" [(ngModel)]="InputValue" min="0" ></td>
+        <td>
+          <button mat-fab color="" style="background-color:rgb(251,183,16)" [disabled]="InputValue < 1"  (click)="AddToCart(pro ,+inputNeddedQuantity.value)">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </td>
+      </tr>
+
+    </ng-container>
+    </tbody>
+  </table>
+
+</div>

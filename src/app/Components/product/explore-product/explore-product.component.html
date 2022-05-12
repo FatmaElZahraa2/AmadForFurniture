@@ -1,0 +1,15 @@
+<div class="container" >
+
+<div class="row">
+  <div class="card col-4" style="width: 15rem;align-items: center;" *ngFor="let item of ProductListForExploration" >
+    <img class="card-img-top" [src]="item.imageUrl" alt="Card image cap" (click)="OpenImageDialog(item.id)">
+    <div class="card-body">
+     <h5>{{item.name}}</h5>
+
+    </div>
+  </div>
+
+</div>
+
+</div>
+
